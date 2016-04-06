@@ -3,11 +3,9 @@
 		引数
 			1: タグ名
 			2~: 属性の{key:value} or テキストノードにする"string"
-	エスケープが足りない
 */
 
 // Modules & var
-import webEscape from 'web-escape';
 const _doc = document;
 
 function makeElement(tagName, ...args){
@@ -24,7 +22,7 @@ function makeElement(tagName, ...args){
 		}else if(arg instanceof Object){
 			for(let [key, value] of Object.entries(arg)){
 				if(typeof value==='string'){
-					element.setAttribute(key, webEscape(value));
+					element.setAttribute(key, value);
 				}else{
 					element[key] = value;
 				}
