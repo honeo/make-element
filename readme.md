@@ -17,8 +17,6 @@ const anchor = makeElement('a', {href: 'http//example.com/'}, 'Link!');
 const div = makeElement('div', 'hoge', {class: 'fuga'}, 'piyo');
 
 const input = makeElement('input', {type: 'button', disabled: true, value: 'Push!'});
-
-const input = makeElement('input', {type: 'text', value: '1"<script>alert(document.cookie)</script>'});
 ```
 ```html
 <a href="http//example.com/">Link!</a>
@@ -29,8 +27,6 @@ const input = makeElement('input', {type: 'text', value: '1"<script>alert(docume
 </div>
 
 <input type="button" value="Push!" disabled>
-
-<input type="text" value="1&quot;&lt;script&gt;alert(document.cookie)&lt;/script&gt;">
 ```
 
 ## その他

@@ -14,13 +14,6 @@ HTMLDocument.prototype.makeElement = makeElement;
 // Cases
 const caseArray = [];
 
-
-// escape
-caseArray.push( (arg)=>{
-	const input = makeElement('input', {type: 'text', value: '1"<script>alert(document.cookie)</script>'});
-	return input.value==='1&quot;&lt;script&gt;alert(document.cookie)&lt;/script&gt;';
-});
-
 // Document#makeElement()
 caseArray.push( (arg)=>{
 	return document.makeElement('div').tagName==='DIV';
