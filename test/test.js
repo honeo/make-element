@@ -9,7 +9,7 @@ global.HTMLDocument = window.HTMLDocument;
 
 // modules
 const makeElement = require('../').default;
-HTMLDocument.prototype.makeElement = makeElement;
+const isRegistr = require('../register');
 
 // Cases
 const caseArray = [];

@@ -29,8 +29,9 @@ const input = makeElement('input', {type: 'button', disabled: true, value: 'Push
 <input type="button" value="Push!" disabled>
 ```
 
-## その他
+## prototype拡張
+ご利用は計画的に。
 ```js
-HTMLDocument.prototype.makeElement = makeElement;
+import 'make-element/register';
 const element = document.makeElement('tagName');
 ```
