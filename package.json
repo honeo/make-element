@@ -1,10 +1,10 @@
 {
   "name": "make-element",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "elementを作るやつ",
   "main": "index.js",
   "scripts": {
-    "test": "cd test && babel-node --ignore '' test.js"
+    "test": "cd test && babel-node  test.js --presets es2015,stage-0 --ignore ''"
   },
   "author": "honeo",
   "license": "MIT",
