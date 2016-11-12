@@ -43,6 +43,14 @@ caseArray.push( (arg)=>{
 	return span.tagName==='SPAN' && span.firstChild.nodeValue===text;
 });
 
+// node
+caseArray.push( (arg)=>{
+	const anchor = document.createElement('a');
+	const span = document.createElement('span');
+	const div = makeElement('div', anchor, 'hoge', span);
+	return span.firstChild.tagName==='A' && span.lastChild.tagName==='DIV';
+});
+
 // multi
 caseArray.push( (arg)=>{
 	const span = makeElement('span', 'foo', {id: 'hoge'}, 'bar', {class: 'fuga'});

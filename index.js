@@ -2,23 +2,18 @@
 	エレメントを作るぞ
 		引数
 			1: タグ名
-			2~: 属性の{key:value} or テキストノードにする"string"
+			2~: 属性の{key:value} or テキストノードにする"string" or 挿入するnode
 */
 
-// Modules & var
-const _doc = document;
-
 function makeElement(tagName, ...args){
-	const doc = this instanceof HTMLDocument ?
-		this:
-		_doc;
+	const doc = document;
 	if(typeof tagName!=='string'){
-		throw new TypeError('invalid argument');
+		throw new TypeError('Invalid argument');
 	}
 	const element = doc.createElement(tagName);
 	args.forEach( (arg)=>{
 		if(typeof arg==='string'){
-			element.appendChild( doc.createTextNode(arg) );
+			element.append( doc.createTextNode(arg) );
 		}else if(arg instanceof Object){
 			for(let [key, value] of Object.entries(arg)){
 				if(typeof value==='string'){
@@ -27,8 +22,10 @@ function makeElement(tagName, ...args){
 					element[key] = value;
 				}
 			}
+		}else if( arg instanceof Node ){
+			element.append(arg);
 		}else{
-			throw new TypeError('invalid argument');
+			throw new TypeError('Invalid argument');
 		}
 	});
 	return element;

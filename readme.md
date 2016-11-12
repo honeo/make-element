@@ -1,6 +1,6 @@
 # make-element
-[honeo/make-element](https://github.com/honeo/make-element)  
-[make-element](https://www.npmjs.com/package/make-element)
+* [honeo/make-element](https://github.com/honeo/make-element)  
+* [make-element](https://www.npmjs.com/package/make-element)
 
 ## なにこれ
 引数に合わせて要素を作って返す。
@@ -14,19 +14,26 @@ import makeElement from 'make-element';
 
 const anchor = makeElement('a', {href: 'http//example.com/'}, 'Link!');
 
-const div = makeElement('div', 'hoge', {class: 'fuga'}, 'piyo');
+const span = makeElement('span', 'hoge', {class: 'fuga'}, 'piyo');
 
 const input = makeElement('input', {type: 'button', disabled: true, value: 'Push!'});
+
+const div = makeElement('div', makeElement('span', 'foo'), 'bar');
 ```
 ```html
 <a href="http//example.com/">Link!</a>
 
-<div class="fuga">
+<span class="fuga">
 	"hoge"
 	"piyo"
-</div>
+</span>
 
 <input type="button" value="Push!" disabled>
+
+<div>
+	<span>"foo"</span>
+	"bar"
+</div>
 ```
 
 ## prototype拡張
