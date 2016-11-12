@@ -5,6 +5,7 @@ const JSDOM = require('jsdom');
 global.document = JSDOM.jsdom('hogehoge');
 global.head = document.head;
 global.window = document.defaultView;
+global.Node = window.Node;
 global.HTMLDocument = window.HTMLDocument;
 
 // modules
@@ -48,7 +49,8 @@ caseArray.push( (arg)=>{
 	const anchor = document.createElement('a');
 	const span = document.createElement('span');
 	const div = makeElement('div', anchor, 'hoge', span);
-	return span.firstChild.tagName==='A' && span.lastChild.tagName==='DIV';
+	console.log(div.firstChild, div.lastChild);
+	return div.tagName==='DIV' && div.firstChild.tagName==='A' && div.lastChild.tagName==='SPAN';
 });
 
 // multi
@@ -62,6 +64,6 @@ caseArray.forEach( (func, index, array)=>{
 	if( func() ){
 		console.log(`${index+1}/${array.length}: success`)
 	}else{
-		throw new Error(`${index}/${array.length}: failed`)
+		throw new Error(`${index+1}/${array.length}: failed`)
 	}
 });

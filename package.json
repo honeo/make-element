@@ -4,7 +4,7 @@
   "description": "elementを作るやつ",
   "main": "index.js",
   "scripts": {
-    "test": "cd test && babel-node  test.js --presets es2015,stage-0 --ignore ''"
+    "test": "cd test && babel-node  test.js --presets es2015,stage-0"
   },
   "author": "honeo",
   "license": "MIT",

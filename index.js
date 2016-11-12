@@ -13,7 +13,9 @@ function makeElement(tagName, ...args){
 	const element = doc.createElement(tagName);
 	args.forEach( (arg)=>{
 		if(typeof arg==='string'){
-			element.append( doc.createTextNode(arg) );
+			element.appendChild( doc.createTextNode(arg) );
+		}else if( arg instanceof Node ){
+			element.appendChild(arg);
 		}else if(arg instanceof Object){
 			for(let [key, value] of Object.entries(arg)){
 				if(typeof value==='string'){
@@ -22,8 +24,6 @@ function makeElement(tagName, ...args){
 					element[key] = value;
 				}
 			}
-		}else if( arg instanceof Node ){
-			element.append(arg);
 		}else{
 			throw new TypeError('Invalid argument');
 		}
