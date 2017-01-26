@@ -1,31 +1,43 @@
 /*
 	エレメントを作るぞ
-		引数
-			1: タグ名
-			2~: 属性の{key:value} or テキストノードにする"string" or 挿入するnode
+
+	引数
+		1: tagname
+		2...:
+			object:
+				keyが文字列ならそのままsetAttribute(key, value)にする。
+				keyが文字列でないならelement.key = valueとする。
+				keyがclassで、既にstringのvalueが設定されている場合はスペースを挟んで追記する。
+			string: textnode
+			node: insert
 */
 
 function makeElement(tagName, ...args){
 	const doc = document;
 	if(typeof tagName!=='string'){
-		throw new TypeError('Invalid argument');
+		throw new TypeError('Invalid argument: 1');
 	}
 	const element = doc.createElement(tagName);
-	args.forEach( (arg)=>{
+	args.forEach( (arg, index)=>{
 		if(typeof arg==='string'){
 			element.appendChild( doc.createTextNode(arg) );
+
 		}else if( arg instanceof Node ){
 			element.appendChild(arg);
+
 		}else if(arg instanceof Object){
 			for(let [key, value] of Object.entries(arg)){
-				if(typeof value==='string'){
+				if(key==='class' && typeof value==='string' && element.className!==''){
+					element.className += ' '+value;
+				}else if(typeof value==='string'){
 					element.setAttribute(key, value);
 				}else{
 					element[key] = value;
 				}
 			}
+
 		}else{
-			throw new TypeError('Invalid argument');
+			throw new TypeError(`Invalid argument: ${index+1}`);
 		}
 	});
 	return element;

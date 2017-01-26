@@ -14,7 +14,7 @@ import makeElement from 'make-element';
 
 const anchor = makeElement('a', {href: 'http//example.com/'}, 'Link!');
 
-const span = makeElement('span', 'hoge', {class: 'fuga'}, 'piyo');
+const span = makeElement('span', 'hoge', {class: 'foo'}, 'fuga', {class: 'bar'});
 
 const input = makeElement('input', {type: 'button', disabled: true, value: 'Push!'});
 
@@ -23,9 +23,9 @@ const div = makeElement('div', makeElement('span', 'foo'), 'bar');
 ```html
 <a href="http//example.com/">Link!</a>
 
-<span class="fuga">
+<span class="foo bar">
 	"hoge"
-	"piyo"
+	"fuga"
 </span>
 
 <input type="button" value="Push!" disabled>

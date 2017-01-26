@@ -56,9 +56,15 @@ caseArray.push( (arg)=>{
 // multi
 caseArray.push( (arg)=>{
 	const span = makeElement('span', 'foo', {id: 'hoge'}, 'bar', {class: 'fuga'});
+	console.log(span.className);
 	return span.tagName==='SPAN' && span.firstChild.nodeValue==='foo' && span.id==='hoge' && span.lastChild.nodeValue==='bar' && span.className==='fuga';
 });
 
+// class
+caseArray.push( (arg)=>{
+	const div = makeElement('div', {class: "hoge"}, {class: "fuga"}, {class: "piyo"});
+	return div.className==='hoge fuga piyo';
+});
 
 caseArray.forEach( (func, index, array)=>{
 	if( func() ){
