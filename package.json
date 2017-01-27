@@ -1,6 +1,6 @@
 {
   "name": "make-element",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "elementを作るやつ",
   "main": "index.js",
   "scripts": {
