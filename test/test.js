@@ -49,14 +49,12 @@ caseArray.push( (arg)=>{
 	const anchor = document.createElement('a');
 	const span = document.createElement('span');
 	const div = makeElement('div', anchor, 'hoge', span);
-	console.log(div.firstChild, div.lastChild);
 	return div.tagName==='DIV' && div.firstChild.tagName==='A' && div.lastChild.tagName==='SPAN';
 });
 
 // multi
 caseArray.push( (arg)=>{
 	const span = makeElement('span', 'foo', {id: 'hoge'}, 'bar', {class: 'fuga'});
-	console.log(span.className);
 	return span.tagName==='SPAN' && span.firstChild.nodeValue==='foo' && span.id==='hoge' && span.lastChild.nodeValue==='bar' && span.className==='fuga';
 });
 
@@ -64,6 +62,12 @@ caseArray.push( (arg)=>{
 caseArray.push( (arg)=>{
 	const div = makeElement('div', {class: "hoge"}, {class: "fuga"}, {class: "piyo"});
 	return div.className==='hoge fuga piyo';
+});
+
+// style
+caseArray.push( (arg)=>{
+	const div = makeElement('div', {style: "foo:value;"}, {style: "bar:value;"});
+	return div.getAttribute("style")==='foo:value; bar:value;';
 });
 
 caseArray.forEach( (func, index, array)=>{

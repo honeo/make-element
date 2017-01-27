@@ -8,6 +8,7 @@
 				keyが文字列ならそのままsetAttribute(key, value)にする。
 				keyが文字列でないならelement.key = valueとする。
 				keyがclassで、既にstringのvalueが設定されている場合はスペースを挟んで追記する。
+				keyがstyleで、既にstringのvalueが設定されている場合は追記する。
 			string: textnode
 			node: insert
 */
@@ -28,7 +29,10 @@ function makeElement(tagName, ...args){
 		}else if(arg instanceof Object){
 			for(let [key, value] of Object.entries(arg)){
 				if(key==='class' && typeof value==='string' && element.className!==''){
-					element.className += ' '+value;
+					element.className += ` ${value}`;
+				}else if(key==='style' && typeof value==='string' && element.getAttribute('style')){
+					const setValue = element.getAttribute('style') + ` ${value}`;
+					element.setAttribute('style', setValue);
 				}else if(typeof value==='string'){
 					element.setAttribute(key, value);
 				}else{

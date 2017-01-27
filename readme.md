@@ -14,25 +14,27 @@ import makeElement from 'make-element';
 
 const anchor = makeElement('a', {href: 'http//example.com/'}, 'Link!');
 
-const span = makeElement('span', 'hoge', {class: 'foo'}, 'fuga', {class: 'bar'});
+const span = makeElement('span',
+	'classやstyleが複数あればスペースを挟んで統合する。',
+	{class: 'foo'}, {class: 'bar'},
+	{style: "foo:value;"}, {style: "bar:value;"}
+);
 
 const input = makeElement('input', {type: 'button', disabled: true, value: 'Push!'});
 
-const div = makeElement('div', makeElement('span', 'foo'), 'bar');
+const div = makeElement('div', makeElement('span', '引数がNodeなら挿入する。'));
 ```
 ```html
 <a href="http//example.com/">Link!</a>
 
-<span class="foo bar">
-	"hoge"
-	"fuga"
+<span class="foo bar" style="foo:value; bar:value;">
+	classやstyleが複数あればスペースを挟んで統合する。
 </span>
 
 <input type="button" value="Push!" disabled>
 
 <div>
-	<span>"foo"</span>
-	"bar"
+	<span>"引数がNodeなら挿入する。"</span>
 </div>
 ```
 
