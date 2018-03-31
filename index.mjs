@@ -21,10 +21,10 @@ function makeElement(tagName, ...args){
 	const element = doc.createElement(tagName);
 	args.forEach( (arg, index)=>{
 		if(typeof arg==='string'){
-			element.appendChild( doc.createTextNode(arg) );
+			element.append( doc.createTextNode(arg) );
 
 		}else if( arg instanceof Node ){
-			element.appendChild(arg);
+			element.append(arg);
 
 		}else if(arg instanceof Object){
 			for(let [key, value] of Object.entries(arg)){

@@ -1,4 +1,4 @@
-import makeElement from '../';
+import makeElement from './';
 
 Object.defineProperty(HTMLDocument.prototype, 'makeElement', {
     value: makeElement,

@@ -1,16 +1,12 @@
+// Mod
+import './load-browser-env.mjs';
+import makeElement from '../';
+import isRegistr from '../register.mjs';
+
 console.log('make-element: test');
 
-// jsdom + var
-const JSDOM = require('jsdom');
-global.document = JSDOM.jsdom('hogehoge');
-global.head = document.head;
-global.window = document.defaultView;
-global.Node = window.Node;
-global.HTMLDocument = window.HTMLDocument;
 
 // modules
-const makeElement = require('../').default;
-const isRegistr = require('../register');
 
 // Cases
 const caseArray = [];

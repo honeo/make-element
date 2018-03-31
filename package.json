@@ -2,25 +2,21 @@
   "name": "make-element",
   "version": "1.4.0",
   "description": "elementを作るやつ",
-  "main": "index.js",
+  "main": "index.mjs",
   "scripts": {
-    "test": "npm update && cd test && babel-node test.js --presets es2015,stage-0"
+    "test": "npm update && cd test && node --experimental-modules test.mjs"
   },
   "author": "honeo",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "babel-core": "^6.7.4",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "jsdom": "^8.2.0"
+    "browser-env": "^3.2.5"
   },
   "directories": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/honeo/make-element.git"
+    "url": "https://github.com/honeo/make-element.git"
   },
   "keywords": [
     "element",

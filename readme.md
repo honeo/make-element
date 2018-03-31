@@ -7,7 +7,7 @@
 
 ## 使い方
 ```sh
-$ npm i -S make-element
+$ npm i make-element
 ```
 ```js
 import makeElement from 'make-element';
@@ -41,6 +41,6 @@ const div = makeElement('div', makeElement('span', '引数がNodeなら挿入す
 ## prototype拡張
 ご利用は計画的に。
 ```js
-import 'make-element/register';
+import 'make-element/register.mjs';
 const element = document.makeElement('tagName');
 ```
