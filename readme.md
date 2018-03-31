@@ -10,8 +10,15 @@
 $ npm i make-element
 ```
 ```js
+// Bundle, Node.js
 import makeElement from 'make-element';
 
+// CDN
+const makeElement = await import('https://cdn.rawgit.com/honeo/make-element/master/index.mjs').then( (mod)=>{
+	return mod.default;
+});
+```
+```js
 const anchor = makeElement('a', {href: 'http//example.com/'}, 'Link!');
 
 const span = makeElement('span',
@@ -37,6 +44,7 @@ const div = makeElement('div', makeElement('span', '引数がNodeなら挿入す
 	<span>"引数がNodeなら挿入する。"</span>
 </div>
 ```
+
 
 ## prototype拡張
 ご利用は計画的に。
